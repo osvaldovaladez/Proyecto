@@ -25,7 +25,7 @@
             <div class="container">
 
                 <!-- Navbar: Brand -->
-                <a class="navbar-brand d-lg-none" href="index.jsp">Buscar Platillo</a>
+                <a class="navbar-brand d-lg-none" href="index.jsp">Eliminar Platillo</a>
 
                 <!-- Navbar: Toggler -->
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +49,7 @@
 
                     <!-- Navbar: Brand -->
                     <a class="navbar-brand d-none d-lg-flex" href="index.jsp">
-                        Buscar Platillo
+                        Eliminar Platillo
                     </a>
 
                     <!-- Navbar navigation: Right -->
@@ -86,7 +86,7 @@
                             </div>
                             <br>
                             <input type="reset" class="btn btn-light" value="Borrar">
-                            <input type="submit" class="btn btn-light" value="Buscar Platillo">
+                            <input type="submit" class="btn btn-light" value="Eliminar Platillo">
                         </form>
                         <br>    
                         <form action="listaJuego.jsp" method="post">

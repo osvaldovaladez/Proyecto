@@ -15,17 +15,16 @@
         <!-- Los iconos tipo Solid de Fontawesome-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
         <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-        
+
         <!-- Nuestro css-->
         <link rel="stylesheet" type="text/css" href="css/general.css"> 
     </head>
-    <!--hola--->
     <body>
         <nav class="navbar navbar-dark navbar-expand-lg fixed-top navbar-light">
             <div class="container">
 
                 <!-- Navbar: Brand -->
-                <a class="navbar-brand d-lg-none" href="index.jsp">Buscar Platillo</a>
+                <a class="navbar-brand d-lg-none" href="index.jsp">Agregar Platillo</a>
 
                 <!-- Navbar: Toggler -->
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +48,7 @@
 
                     <!-- Navbar: Brand -->
                     <a class="navbar-brand d-none d-lg-flex" href="index.jsp">
-                        Buscar Platillo
+                        Agregar Platillo
                     </a>
 
                     <!-- Navbar navigation: Right -->
@@ -69,32 +68,55 @@
         <br>
         <br>
         <br>
-        <br>
         <div class="container">
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-6">
-                        <form action="buscarJuego" method="post">
-                            <div class="form-group">
-                                <label class="table-dark">Clave: </label>
-                                <input type="text" name="clave"/>
-                            </div>
-                            <div class="form-group">
-                                <br>
-                                <label class="table-dark">Nombre: </label>
-                                <input type="text" name="nombre"/>
-                            </div>
-                            <br>
-                            <input type="reset" class="btn btn-light" value="Borrar">
-                            <input type="submit" class="btn btn-light" value="Buscar Platillo">
-                        </form>
-                        <br>    
-                        <form action="listaJuego.jsp" method="post">
-                            <input type="submit" class="btn btn-light" value="Regresar">
-                        </form>
+                    <form action="#" class="col-12" method="post">
+                        <table border="0">
+                            <tr>
+                                <td align="right">
+                                    <label class="table-dark">Clave: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="clave"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <br>
+                                    <label class="table-dark">Nombre: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="nombre"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <br>
+                                    <label class="table-dark">Descripcion: </label>
+                                </td>
+                                <td>
+                                    <br>
+                                    <textarea name="descripcion"> </textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <br>
+                                    <label class="table-dark">Precio: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="precio" value=""/>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="submit" class="btn btn-light" value="Guardar">
+
+                    </form>
                 </div>
-                <div class="col-sm-2"></div>
+                <div class="col-sm-2"
             </div>
         </div>
-    </body>
+</body>
 </html>
