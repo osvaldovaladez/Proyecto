@@ -68,42 +68,55 @@
         <br>
         <br>
         <br>
-       <div class="container">
+        <div class="container">
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-6">
                     <form action="#" class="col-12" method="post">
-                        <div class="form-group">
-                            <label class="table-dark">Clave: </label>
-                            <input type="text" name="clave"/>
-                            
-                        </div>
-                        <div class="form-group">
-                            <br>
-                            <label class="table-dark">Nombre: </label>
-                            <input type="text" name="nombre"/>
-                        </div>
-                        <div class="form-group">
-                            <br>
-                            <label class="table-dark">Descripcion: </label>
-                            <br>
-                            <textarea name="descripcion"> </textarea>
-                        </div>
-                        <div class="form-group">
-                            <br>
-                            <br>
-                            <label class="table-dark">Precio: </label>
-                            <input type="text" name="precio" value=""/>
-                        </div>
-                        <div class="form-group">
-                            <br><br>
-                            <input type="submit" class="btn btn-light" value="Guardar">
-                            <input type="reset" class="btn btn-light" value="Agregar Imagen">
-                        </div>
+                        <table border="0">
+                            <tr>
+                                <td align="right">
+                                    <label class="table-dark">Clave: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="clave"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <br>
+                                    <label class="table-dark">Nombre: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="nombre"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <br>
+                                    <label class="table-dark">Descripcion: </label>
+                                </td>
+                                <td>
+                                    <br>
+                                    <textarea name="descripcion"> </textarea>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <br>
+                                    <label class="table-dark">Precio: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="precio" value=""/>
+                                </td>
+                            </tr>
+                        </table>
+                        <input type="submit" class="btn btn-light" value="Guardar">
+
                     </form>
-                    </div>
+                </div>
                 <div class="col-sm-2"
             </div>
         </div>
-        </body>
+</body>
 </html>
