@@ -19,6 +19,7 @@
         <!-- Nuestro css-->
         <link rel="stylesheet" type="text/css" href="css/general.css"> 
     </head>
+    <!--hola--->
     <body>
         <nav class="navbar navbar-dark navbar-expand-lg fixed-top navbar-light">
             <div class="container">
