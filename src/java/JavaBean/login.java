@@ -49,7 +49,7 @@ public class login extends HttpServlet {
                 HttpSession session = request.getSession();
                 session.setAttribute("usuario", user.getNombreUsuario());
                 if("admin".equals(user.getTipo())){
-                    request.getRequestDispatcher("/Acerca.jsp")
+                    request.getRequestDispatcher("/principalAdmin.jsp")
                             .forward(request, response);
                 }else{
                     request.getRequestDispatcher("/Acerca.jsp")
