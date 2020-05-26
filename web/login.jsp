@@ -74,7 +74,7 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-6">
-                    <form action="" method="post">
+                    <form action="login" method="post">
                         <table border="0">    
                             <tr>
                                 <td>
@@ -100,14 +100,15 @@
                                 </td>
                                 <td>
                                     <br>
-                                    <form action="" method="post">
-                                        <input type="submit" class="btn btn-light" value="Registrar">
-                                    </form>
+                                    
                                 </td>
                             </tr>
                         </table>
                     </form>
-                    <br>    
+                    <br> 
+                    <form action="Registro_Usuario.jsp" method="post">
+                        <input type="submit" class="btn btn-light" value="Registrar">
+                    </form>
                 </div>
                 <div class="col-sm-2"></div>
             </div>

@@ -21,6 +21,8 @@ public class GestorBD {
     Integer clave, precio;
     String nombre, descripcion, usuario;
     platillos platilloencontrado;
+    //Para el usuario
+    String nombreUsuario, email, password, direccion, telefono, tipo;      
 
     public ArrayList<platillos> Todos() {
         ArrayList<platillos> platillo = new ArrayList<platillos>();
@@ -71,6 +73,37 @@ public class GestorBD {
         } catch (SQLException e) {
             System.out.println("Error en la base de datos.");
             return false;
+        }
+    }
+    
+    public Usuario consultar(String nombreUser, String passw) {
+        try {
+            conn = ConectaBD.abrir();
+            stm = conn.createStatement();
+            
+            ResultSet = stm.executeQuery("SELECT * FROM usuarios WHERE nombreUsuario = '" + nombreUser + "' and password = '" + passw + "';");
+
+            if (!ResultSet.next()) {
+                System.out.println(" No se encontro el registro");
+                ConectaBD.cerrar();
+                return null;
+            } else {
+                System.out.println("Se encontró el registro");
+                nombreUsuario = ResultSet.getString("nombreUsuario");
+                email = ResultSet.getString("email");
+                password = ResultSet.getString("password");
+                direccion = ResultSet.getString("direccion");
+                telefono = ResultSet.getString("telefono");
+                tipo = ResultSet.getString("tipo");
+                Usuario usuarioHallado = new Usuario(nombreUsuario, email, password, direccion, telefono, tipo);
+
+                ConectaBD.cerrar();
+                return usuarioHallado;
+            }
+        } catch (Exception e) {
+            System.out.println("Error en la base de datos.");
+            e.printStackTrace();
+            return null;
         }
     }
 }
