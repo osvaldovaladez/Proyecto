@@ -16,7 +16,9 @@ public class GestorBD {
     String clave, precio, nombre, descripcion, usuario;
     platillos platilloencontrado;
     //Para el usuario
-    String nombreUsuario, email, password, direccion, telefono, tipo;
+    String idUsuario, nombreUsuario, email, password, direccion, telefono, tipo;
+    //Para las reservaciones
+    String id, hora, fecha, mesa, nombreReservacion, personas;
 
     public ArrayList<platillos> Todos() {
         ArrayList<platillos> platillo = new ArrayList<platillos>();
@@ -161,13 +163,14 @@ public class GestorBD {
                 return null;
             } else {
                 do {
+                    idUsuario = ResultSet.getString("idUsuario");
                     nombreUsuario = ResultSet.getString("nombreUsuario");
                     email = ResultSet.getString("email");
                     password = ResultSet.getString("password");
                     direccion = ResultSet.getString("direccion");
                     telefono = ResultSet.getString("telefono");
                     tipo = ResultSet.getString("tipo");
-                    Usuario usuarioHallado = new Usuario(nombreUsuario, email, password, direccion, telefono, tipo);
+                    Usuario usuarioHallado = new Usuario(idUsuario, nombreUsuario, email, password, direccion, telefono, tipo);
                     usuario.add(usuarioHallado);
                 } while (ResultSet.next());
                 ConectaBD.cerrar();
@@ -215,16 +218,72 @@ public class GestorBD {
                 return null;
             } else {
                 System.out.println("Se encontró el registro");
+                idUsuario = ResultSet.getString("idUsuario");
                 nombreUsuario = ResultSet.getString("nombreUsuario");
                 email = ResultSet.getString("email");
                 password = ResultSet.getString("password");
                 direccion = ResultSet.getString("direccion");
                 telefono = ResultSet.getString("telefono");
                 tipo = ResultSet.getString("tipo");
-                Usuario usuarioHallado = new Usuario(nombreUsuario, email, password, direccion, telefono, tipo);
+                Usuario usuarioHallado = new Usuario(idUsuario, nombreUsuario, email, password, direccion, telefono, tipo);
 
                 ConectaBD.cerrar();
                 return usuarioHallado;
+            }
+        } catch (Exception e) {
+            System.out.println("Error en la base de datos.");
+            e.printStackTrace();
+            return null;
+        }
+    }
+    
+    public boolean registrarReservacion(String hora, String fecha, String personas, String mesa, String nombre) {
+        int resultUpdate = 0;
+        try {
+            conn = ConectaBD.abrir();
+            stm = conn.createStatement();
+
+            resultUpdate = stm.executeUpdate("INSERT INTO reservaciones (hora, fecha, mesa, reservacionNombre, numPersonas) VALUES ('" + hora + "','" + fecha + "','" + mesa + "','" + nombre + "','" + personas + "');");
+
+            if (resultUpdate != 0) {
+                System.out.print("se insertaron los datos");
+                ConectaBD.cerrar();
+                return true;
+            } else {
+                ConectaBD.cerrar();
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en la base de datos.");
+            return false;
+        }
+    }
+    
+    
+    //Mostrar reservaciones
+    public ArrayList<Reservacion> TodasReservaciones(String user) {
+        ArrayList<Reservacion> reservacion = new ArrayList<Reservacion>();
+        try {
+            conn = ConectaBD.abrir();
+            stm = conn.createStatement();
+            ResultSet = stm.executeQuery("SELECT * FROM reservaciones WHERE reservacionNombre = '" + user + "';");
+            if (!ResultSet.next()) {
+                System.out.println(" No se encontraron registros");
+                ConectaBD.cerrar();
+                return null;
+            } else {
+                do {
+                    id = ResultSet.getString("idReservacion");
+                    hora = ResultSet.getString("hora");
+                    fecha = ResultSet.getString("fecha");
+                    mesa = ResultSet.getString("mesa");
+                    nombreReservacion = ResultSet.getString("reservacionNombre");
+                    personas = ResultSet.getString("numPersonas");
+                    Reservacion reservacionEncontrada = new Reservacion(id, hora, fecha, mesa, nombreReservacion, personas);
+                    reservacion.add(reservacionEncontrada);
+                } while (ResultSet.next());
+                ConectaBD.cerrar();
+                return reservacion;
             }
         } catch (Exception e) {
             System.out.println("Error en la base de datos.");

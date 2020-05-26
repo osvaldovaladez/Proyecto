@@ -6,7 +6,6 @@
 package JavaBean;
 
 import Modelo.GestorBD;
-import Modelo.Usuario;
 import java.io.IOException;
 import java.io.PrintWriter;
 import javax.servlet.ServletException;
@@ -14,14 +13,13 @@ import javax.servlet.annotation.WebServlet;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
-import javax.servlet.http.HttpSession;
 
 /**
  *
  * @author jaime
  */
-@WebServlet(name = "login", urlPatterns = {"/login"})
-public class login extends HttpServlet {
+@WebServlet(name = "agregarReservacion", urlPatterns = {"/agregarReservacion"})
+public class agregarReservacion extends HttpServlet {
 
     /**
      * Processes requests for both HTTP <code>GET</code> and <code>POST</code>
@@ -36,28 +34,21 @@ public class login extends HttpServlet {
             throws ServletException, IOException {
         response.setContentType("text/html;charset=UTF-8");
         PrintWriter out = response.getWriter();
-        String usuario = request.getParameter("user");
-        String pass = request.getParameter("pass");
-
         try {
-            Usuario user;
+            String idUsuario;
+            String hora = request.getParameter("hora");
+            String fecha = request.getParameter("fecha");
+            String personas = request.getParameter("personas");
+            String mesa = request.getParameter("mesa");
+            String nombre = request.getParameter("nombre");
+
             GestorBD gestorBD = new GestorBD();
 
-            user = gestorBD.consultar(usuario, pass);
-
-            if (user != null) {
-                HttpSession session = request.getSession();
-                session.setAttribute("usuario", user.getNombreUsuario());
-                if("admin".equals(user.getTipo())){
-                    request.getRequestDispatcher("/principalAdmin.jsp")
-                            .forward(request, response);
-                }else{
-                    System.out.println("-----------"+user.getIdUsuario());
-                    request.getRequestDispatcher("/usuario.jsp")
-                            .forward(request, response);
-                }
+            if (gestorBD.registrarReservacion(hora, fecha, personas, mesa, nombre)) {
+                request.getRequestDispatcher("/principalAdmin.jsp")
+                        .forward(request, response);
             } else {
-                request.getRequestDispatcher("/noEncontrado.jsp")
+                request.getRequestDispatcher("/errorEnRegistro.jsp")
                         .forward(request, response);
             }
 

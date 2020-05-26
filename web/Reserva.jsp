@@ -28,7 +28,7 @@
     <body>
         <div class="container">        
         <h2>Hola, ingresa los datos de tu reservacion</h2>
-        <form action="some.jsp" method="POST">
+        <form action="agregarReservacion" method="POST">
             <p>
  Selecciona la hora deseada:
   <input type="time" name="hora" min="10:00" max="21:00" step="1800">
@@ -62,7 +62,12 @@
     <option value="8">8</option>
     <option value="9">9</option>
   </select>
-  <br><br>     
+  <br><br>
+  
+  Nombre registrado:
+  <input type="text" name="nombre">
+  <br><br>
+  
   <button class="boton table-dark">
   Confirmar
   </button>

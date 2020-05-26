@@ -1,3 +1,5 @@
+<%@page import="Modelo.GestorBD"%>
+<%@page import="Modelo.Usuario"%>
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <%@page import = "Modelo.*"%>
 <%@page import = "Modelo.Usuario, java.util.ArrayList" %>

@@ -1,5 +1,6 @@
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import = "Modelo.*"%>
+<%@page import = "Modelo.platillos, java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -44,9 +45,6 @@
                                 Menu
                             </a>
                         </li>
-                        <li class="nav-item ">
-                            <a class="nav-link active" href="misReservaciones.jsp">Mis reservaciones</a>
-                        </li>
                     </ul>
 
                     <!-- Navbar: Brand -->
@@ -65,18 +63,49 @@
 
             </div> <!-- / .container -->
         </nav>
-        <div class="centrado">
-            <h2>Touche</h2>
-            <p>Lorem ipsum dolor sit amet, 
-                consectetur adipisicing elit. 
-                Non illo, alias animi iusto neque, 
-                sint corrupti? Laudantium, 
-                dignissimos id excepturi facilis, 
-                facere saepe quasi placeat praesentium 
-                ipsa sapiente illo molestiae? 
-            </p>
-            <br>
-            <a class="boton table-dark" href="menu.jsp"> VER MENU </a>
-        </div>		
+        <br>
+        <br>
+        <br>
+        <%
+            ArrayList<Reservacion> reservaciones = null;
+            GestorBD gestorBD = new GestorBD();
+            
+            session = (HttpSession) request.getSession();
+            
+            reservaciones = gestorBD.TodasReservaciones((String)session.getAttribute("usuario"));
+        %> 
+        <div class="container">
+            <div class="row">
+                <div class="col-sm-3"></div>
+                <div class="col-sm-6">
+
+                <table class="table">
+                    <tr class="table-dark">
+                        <th>Clave</th>
+                        <th>Hora</th>
+                        <th>Fecha</th>
+                        <th>Mesa</th>
+                        <th>Personas</th>
+                    </tr>
+                    <%
+                            for (Reservacion reserva : reservaciones) {
+                    %>
+                    <tr class="table-dark" valign="rigth">
+                            <td><%=reserva.getId()%></td>
+                            <td><%=reserva.getHora()%></td>
+                            <td><%=reserva.getFecha()%></td>
+                            <td><%=reserva.getMesa()%></td>
+                            <td><%=reserva.getPersonas()%></td>
+                        </tr>
+
+                        <% }%>
+                </table>
+
+                <br>
+                
+                </div>
+                <div class="col-sm-3"></div>
+            </div>
+        </div>	
     </body>
 </html>

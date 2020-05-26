@@ -18,7 +18,8 @@ public class Usuario {
     private String telefono;
     private String tipo;
 
-    public Usuario(String nombreUsuario, String email, String password, String direccion, String telefono, String tipo) {
+    public Usuario(String idUsuario, String nombreUsuario, String email, String password, String direccion, String telefono, String tipo) {
+        this.idUsuario = Integer.parseInt(idUsuario);
         this.nombreUsuario = nombreUsuario;
         this.email = email;
         this.password = password;
