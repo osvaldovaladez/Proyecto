@@ -40,7 +40,7 @@
                             <a class="nav-link active" href="administrarUsuarios.jsp">Usuarios</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">
+                            <a class="nav-link" href="Reserva.jsp">
                                 Reservaciones
                             </a>
                         </li>
