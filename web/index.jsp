@@ -76,7 +76,7 @@
                 ipsa sapiente illo molestiae? 
             </p>
             <br>
-            <a class="boton table-dark" href="#"> REGISTRARSE </a>
+            <a class="boton table-dark" href="Registro_Usuario.jsp"> REGISTRARSE </a>
         </div>		
     </body>
 </html>
