@@ -6,14 +6,12 @@
 package JavaBean;
 
 import javax.inject.Named;
-import javax.enterprise.context.Dependent;
 
 /**
  *
  * @author eerv1
  */
 @Named(value = "bean")
-@Dependent
 public class Bean {
 
     /**
