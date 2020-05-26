@@ -83,7 +83,7 @@
                 <table class="table">
                     <tr class="table-dark">
                         <th>Clave</th>
-                        <th>Clave Usuario</th>
+                        <th>Usuario</th>
                         <th>Nombre</th>
                         <th>Descripcion</th>
                         <th>Precio</th>
@@ -106,23 +106,23 @@
                 <table border="0" cellpadding="5">
                     <tr>
                         <td>
-                            <form action="" method="post">
+                            <form action="Buscarplatillo.jsp" method="post">
                                 <input type="submit" class="btn btn-light" value="Buscar Platillo">
                             </form>
                         </td>
                         <td>
-                            <form action="" method="post">
+                            <form action="agregarPlatillo.jsp" method="post">
                                 <input type="submit" class="btn btn-light" value="Agregar Platillo">
                             </form>
                         </td>
                         <td>
-                            <form action="" method="post">
+                            <form action="buscaplatillomodifica.jsp" method="post">
                                 <input type="submit" class="btn btn-light" value="Modicar Platillo">
                             </form>
                         </td>
                 
                         <td>
-                            <form action="" method="post">
+                            <form action="eliminacionPlatillo.jsp" method="post">
                                 <input type="submit" class="btn btn-light" value="Eliminar Platillo">
                             </form>
                         </td>

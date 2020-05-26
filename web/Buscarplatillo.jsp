@@ -25,7 +25,7 @@
             <div class="container">
 
                 <!-- Navbar: Brand -->
-                <a class="navbar-brand d-lg-none" href="index.jsp">Buscar Platillo</a>
+                <a class="navbar-brand d-lg-none" href="#">Buscar Platillo</a>
 
                 <!-- Navbar: Toggler -->
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +38,7 @@
                     <!-- Navbar navigation: Left -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item ">
-                            <a class="nav-link active" href="Acerca.jsp">Usuarios</a>
+                            <a class="nav-link active" href="administrarUsuarios.jsp">Usuarios</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#">
@@ -48,17 +48,17 @@
                     </ul>
 
                     <!-- Navbar: Brand -->
-                    <a class="navbar-brand d-none d-lg-flex" href="index.jsp">
+                    <a class="navbar-brand d-none d-lg-flex" href="#">
                         Buscar Platillo
                     </a>
 
                     <!-- Navbar navigation: Right -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Platillos</a>
+                            <a class="nav-link" href="gestionPlatillos.jsp">Platillos</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Salir</a>
+                            <a class="nav-link" href="index.jsp">Salir</a>
                         </li>
                     </ul>
 
@@ -74,10 +74,10 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-6">
-                        <form action="buscarJuego" method="post">
+                        <form action="buscarplatillo" method="post">
                             <div class="form-group">
                                 <label class="table-dark">Clave: </label>
-                                <input type="text" name="clave"/>
+                                <input type="text" name="idplatillo"/>
                             </div>
                             <div class="form-group">
                                 <br>
@@ -89,7 +89,7 @@
                             <input type="submit" class="btn btn-light" value="Buscar Platillo">
                         </form>
                         <br>    
-                        <form action="listaJuego.jsp" method="post">
+                        <form action="gestionPlatillos.jsp" method="post">
                             <input type="submit" class="btn btn-light" value="Regresar">
                         </form>
                 </div>

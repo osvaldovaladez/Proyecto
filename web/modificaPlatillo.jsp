@@ -65,6 +65,13 @@
 
             </div> <!-- / .container -->
         </nav>
+        <%
+            String clave = (String) session.getAttribute("idPlatillo");
+            String usuario = (String) session.getAttribute("idUsuario");
+            String nombre = (String) session.getAttribute("nombre");
+            String descripcion = (String) session.getAttribute("descripcion");
+            String precio = (String) session.getAttribute("precio");
+        %>
         <br>
         <br>
         <br>
@@ -72,14 +79,23 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-6">
-                    <form action="#" class="col-12" method="post">
+                    <form action="actualizarplatillo" class="col-12" method="post">
                         <table border="0">
                             <tr>
                                 <td align="right">
                                     <label class="table-dark">Clave: </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="clave"/>
+                                    <input type="text" name="clave" value="<%=clave%>" />
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <br>
+                                    <label class="table-dark">Usuario: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="usuario" value="<%=usuario%>" />
                                 </td>
                             </tr>
                             <tr>
@@ -88,7 +104,7 @@
                                     <label class="table-dark">Nombre: </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="nombre"/>
+                                    <input type="text" name="nombre" value="<%=nombre%>"/>
                                 </td>
                             </tr>
                             <tr>
@@ -98,7 +114,7 @@
                                 </td>
                                 <td>
                                     <br>
-                                    <textarea name="descripcion"> </textarea>
+                                    <textarea name="descripcion"><%=descripcion%> </textarea>
                                 </td>
                             </tr>
                             <tr>
@@ -107,7 +123,7 @@
                                     <label class="table-dark">Precio: </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="precio" value=""/>
+                                    <input type="text" name="precio" value="<%=precio%>"/>
                                 </td>
                             </tr>
                         </table>
@@ -115,7 +131,7 @@
 
                     </form>
                 </div>
-                <div class="col-sm-2"
+                <div class="col-sm-2">
             </div>
         </div>
 </body>

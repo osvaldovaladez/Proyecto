@@ -1,10 +1,9 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
-
 <!DOCTYPE html>
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
-        <title>JSP Page</title>
+        <title>Platillo Encontrado</title>
         <!--JQUERY-->
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 
@@ -15,17 +14,16 @@
         <!-- Los iconos tipo Solid de Fontawesome-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
         <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-        
+
         <!-- Nuestro css-->
-        <link rel="stylesheet" type="text/css" href="css/general.css"> 
+        <link rel="stylesheet" type="text/css" href="css/general.css" th:href="@{/css/estilos.css}">
     </head>
-    <!--hola--->
     <body>
         <nav class="navbar navbar-dark navbar-expand-lg fixed-top navbar-light">
             <div class="container">
 
                 <!-- Navbar: Brand -->
-                <a class="navbar-brand d-lg-none" href="index.jsp">Eliminar Platillo</a>
+                <a class="navbar-brand d-lg-none" href="#">Platillo Encontrado</a>
 
                 <!-- Navbar: Toggler -->
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,7 +36,7 @@
                     <!-- Navbar navigation: Left -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item ">
-                            <a class="nav-link active" href="Acerca.jsp">Usuarios</a>
+                            <a class="nav-link active" href="administrarUsuarios.jsp">Usuarios</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#">
@@ -48,17 +46,17 @@
                     </ul>
 
                     <!-- Navbar: Brand -->
-                    <a class="navbar-brand d-none d-lg-flex" href="index.jsp">
-                        Eliminar Platillo
+                    <a class="navbar-brand d-none d-lg-flex" href="#">
+                        Platillo Encontrado
                     </a>
 
                     <!-- Navbar navigation: Right -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Platillos</a>
+                            <a class="nav-link" href="gestionPlatillos.jsp">Platillos</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Salir</a>
+                            <a class="nav-link" href="index.jsp">Salir</a>
                         </li>
                     </ul>
 
@@ -70,31 +68,47 @@
         <br>
         <br>
         <br>
+        <%
+            String clave = (String) session.getAttribute("idPlatillo");
+            String usuario = (String) session.getAttribute("idUsuario");
+            String nombre = (String) session.getAttribute("nombre");
+            String descripcion = (String) session.getAttribute("descripcion");
+            String precio = (String) session.getAttribute("precio");
+        %>
+        <h3 class="text-center">Datos del platillo encontrado</h3>
         <div class="container">
             <div class="row">
-                <div class="col-sm-4"></div>
+                <div class="col-sm-3"></div>
                 <div class="col-sm-6">
-                        <form action="eliminarplatillo" method="post">
-                            <div class="form-group">
-                                <label class="table-dark">Clave: </label>
-                                <input type="text" name="clave"/>
-                            </div>
-                            <div class="form-group">
-                                <br>
-                                <label class="table-dark">Nombre: </label>
-                                <input type="text" name="nombre"/>
-                            </div>
-                            <br>
-                            <input type="reset" class="btn btn-light" value="Borrar">
-                            <input type="submit" class="btn btn-light" value="Eliminar Platillo">
-                        </form>
-                        <br>    
-                        <form action="listaJuego.jsp" method="post">
-                            <input type="submit" class="btn btn-light" value="Regresar">
-                        </form>
+                    <form action="gestionPlatillos.jsp" method="post">
+
+                        <table class="table table-sm table-primary">
+                            <tr>
+                                <td align="right">Clave:</td>
+                                <td><%=clave%></td>
+                            </tr>
+                            <tr>
+                                <td align="right">Usuario:</td>
+                                <td><%=usuario%></td>
+                            </tr>
+                            <tr>
+                                <td align="right">Nombre:</td>
+                                <td><%=nombre%></td>
+                            </tr>
+                            <tr>
+                                <td align="right">Descripcion:</td>
+                                <td><%=descripcion%></td>
+                            </tr>
+                            <tr>
+                                <td align="right">Precio:</td>
+                                <td>$<%=precio%></td>
+                            </tr>
+                        </table>
+                        <input type="submit" class="btn btn-primary" value="Regresar a la lista de platillos">
+                    </form>
                 </div>
-                <div class="col-sm-2"></div>
+                <div class="col-sm-3"></div>
             </div>
-        </div>
+        </div>	
     </body>
 </html>

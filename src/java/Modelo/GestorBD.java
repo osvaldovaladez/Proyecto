@@ -1,16 +1,10 @@
 package Modelo;
 
-import java.io.BufferedInputStream;
-import java.io.BufferedOutputStream;
-import java.io.InputStream;
-import java.io.OutputStream;
 import java.sql.Connection;
-import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
-import javax.servlet.http.HttpServletResponse;
 
 public class GestorBD {
 
@@ -18,8 +12,8 @@ public class GestorBD {
     Statement stm = null;
     ResultSet ResultSet;
     int resultUpdate = 0;
-    Integer clave, precio;
-    String nombre, descripcion, usuario;
+    //variables de los platillos
+    String clave, precio,nombre, descripcion, usuario;
     platillos platilloencontrado;
     //Para el usuario
     String nombreUsuario, email, password, direccion, telefono, tipo;      
@@ -36,11 +30,11 @@ public class GestorBD {
                 return null;
             } else {
                 do {
-                    clave = ResultSet.getInt("idPlatillo");
+                    clave = ResultSet.getString("idPlatillo");
                     usuario = ResultSet.getString("idUsuario");
                     nombre = ResultSet.getString("nombre");
                     descripcion = ResultSet.getString("descripcion");
-                    precio = ResultSet.getInt("precio");
+                    precio = ResultSet.getString("precio");
                     platilloencontrado = new platillos(clave, usuario, nombre,descripcion, precio);
                     platillo.add(platilloencontrado);
                 } while (ResultSet.next());
@@ -53,6 +47,108 @@ public class GestorBD {
             return null;
         }
     }
+    
+    public platillos buscarPlatillo(String clavej, String nombrej) {
+        try {
+            conn = ConectaBD.abrir();
+            stm = conn.createStatement();
+            ResultSet = stm.executeQuery("SELECT * FROM platillos WHERE idPlatillo=" + clavej + " and nombre='" + nombrej + "';");
+
+            if (!ResultSet.next()) {
+                System.out.println(" No se encontro el registro");
+                ConectaBD.cerrar();
+                return null;
+            } else {
+                System.out.println("Se encontró el registro");
+                clave = ResultSet.getString("idPlatillo");
+                    usuario = ResultSet.getString("idUsuario");
+                    nombre = ResultSet.getString("nombre");
+                    descripcion = ResultSet.getString("descripcion");
+                    precio = ResultSet.getString("precio");
+                    platilloencontrado = new platillos(clave, usuario, nombre,descripcion, precio);
+
+                ConectaBD.cerrar();
+                return platilloencontrado;
+            }
+        } catch (Exception e) {
+            System.out.println("Error en la base de datos.");
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean registrarplatillo(String clave, String nombre, String usuario, String descripcion, String precio) {
+        int resultUpdate = 0;
+        try {
+            conn = ConectaBD.abrir();
+            stm = conn.createStatement();
+
+            resultUpdate = stm.executeUpdate("INSERT INTO platillos VALUES ('" + clave + "','" + usuario + "','" + nombre+ "','" + descripcion+ "','" + precio + "');");
+
+            if (resultUpdate != 0) {
+                System.out.print("se insertaron los datos");
+                ConectaBD.cerrar();
+                return true;
+            } else {
+                ConectaBD.cerrar();
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en la base de datos.");
+            return false;
+        }
+    }
+
+    public boolean modificarplatillo(String clave, String nombre, String usuario, String descripcion, String precio) {
+        try {
+            conn = ConectaBD.abrir();
+            stm = conn.createStatement();
+            resultUpdate = stm.executeUpdate("UPDATE platillos SET idUsuario = '"
+                    + usuario
+                    + "', nombre = '" + nombre
+                    + "', descripcion = '" + descripcion
+                    + "', precio = '" + precio
+                    + "' WHERE idPlatillo = "
+                    + clave + ";");
+            if (resultUpdate != 0) {
+                conn.close();
+                return true;
+            } else {
+                conn.close();;
+                System.out.println("No se pudo actualizar el platillo.");
+                return false;
+            }
+        } catch (Exception e) {
+            System.out.println("Error en la base de datos.");
+            e.printStackTrace();
+            return false;
+        }
+    }
+
+    public boolean eliminarplatillo(String clave, String nombre) {
+         int resultUpdate = 0;
+        try {
+            conn = ConectaBD.abrir();
+            stm = conn.createStatement();
+
+            resultUpdate = stm.executeUpdate(
+                    "DELETE FROM platillos WHERE(idPlatillo ='" + clave + "'and nombre='" + nombre + "');"
+            );
+            if (resultUpdate != 0) {
+                ConectaBD.cerrar();
+                return true;
+            } else {
+                ConectaBD.cerrar();
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en la base de datos.");
+            e.printStackTrace();
+            return false;
+        }
+    }
+    
+    //-------------------------------------------modificaciones del Usuario---------------------------------------
     
     public boolean registrarUsuario(String nombreUsuario,String email,String password,String direccion,String telefono){
         int resultUpdate = 0;

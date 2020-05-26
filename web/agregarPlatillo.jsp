@@ -72,7 +72,7 @@
             <div class="row">
                 <div class="col-sm-4"></div>
                 <div class="col-sm-6">
-                    <form action="#" class="col-12" method="post">
+                    <form action="agregarPlatillo" class="col-12" method="post">
                         <table border="0">
                             <tr>
                                 <td align="right">
@@ -80,6 +80,14 @@
                                 </td>
                                 <td>
                                     <input type="text" name="clave"/>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td align="right">
+                                    <label class="table-dark">Usuario: </label>
+                                </td>
+                                <td>
+                                    <input type="text" name="usuario"/>
                                 </td>
                             </tr>
                             <tr>

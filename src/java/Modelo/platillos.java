@@ -5,16 +5,15 @@
  */
 package Modelo;
 
-import java.io.InputStream;
 
 public class platillos {
-    int id;
+    String id;
     String nombre;
     String usuario;
     String descripcion;
-    int precio;
+    String precio;
 
-    public platillos(int id, String usuario, String nombre, String descripcion, int precio) {
+    public platillos(String id, String usuario, String nombre, String descripcion, String precio) {
         this.id = id;
         this.nombre = nombre;
         this.usuario = usuario;
@@ -22,7 +21,7 @@ public class platillos {
         this.precio = precio;
     }
 
-    public int getId() {
+    public String getId() {
         return id;
     }
 
@@ -38,11 +37,11 @@ public class platillos {
         return descripcion;
     }
 
-    public int getPrecio() {
+    public String getPrecio() {
         return precio;
     }
 
-    public void setId(int id) {
+    public void setId(String id) {
         this.id = id;
     }
 
@@ -58,7 +57,7 @@ public class platillos {
         this.descripcion = descripcion;
     }
 
-    public void setPrecio(int precio) {
+    public void setPrecio(String precio) {
         this.precio = precio;
     }
 }
