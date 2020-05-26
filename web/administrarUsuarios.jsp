@@ -64,5 +64,49 @@
 
             </div> <!-- / .container -->
         </nav>
+       <div class="admin-content">
+
+  <div class="title-content">
+  </div>
+
+      <div class="row-content">
+          <h4 style="color: greenyellow">Lista de usuarios</h4>
+    			<hr/>
+     </div>
+
+      <table id="users_table" class="table table-hover ">
+        <thead>
+            <tr style="color: greenyellow">
+            <th>Id</th>
+            <th>Nombre</th>
+            <th>Email</th>
+            <th>Direccion</th>
+             <th>Telefono</th>
+            <th>Acciones</th>
+          </tr>
+        </thead>
+        <tbody>
+          <?php foreach($data['users'] as $user): ?>
+          <tr style="color: greenyellow">
+              <td><?php echo $user->id; ?></td>
+              <td><?php echo $user->nombre; ?></td>
+              <td><?php echo $user->first_name; ?></td>
+              <td><?php echo $user->last_name; ?></td>
+              <td><?php echo $user->last_name; ?></td>
+                     <td>
+                  <input id="clickMe" id="Editar" class="btn btn-primary btn-sm" type="button" value="Editar"/>
+                <form action="<?php echo ROUTE_URL.'/User/delete/'; ?>" method="POST">
+                  <input type="hidden" name="user_id" value="<?php echo $user->id; ?>">
+                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                </form>
+                <?php endif; ?>
+              </td>
+
+            </tr>
+          <?php endforeach ?>
+        </tbody>
+      </table>
+
+  </div>
     </body>
 </html>
