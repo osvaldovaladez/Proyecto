@@ -18,6 +18,15 @@ public class Usuario {
     private String telefono;
     private String tipo;
 
+    public Usuario(String nombreUsuario, String email, String password, String direccion, String telefono, String tipo) {
+        this.nombreUsuario = nombreUsuario;
+        this.email = email;
+        this.password = password;
+        this.direccion = direccion;
+        this.telefono = telefono;
+        this.tipo = tipo;
+    }
+
     public Integer getIdUsuario() {
         return idUsuario;
     }
