@@ -13,10 +13,10 @@ public class GestorBD {
     ResultSet ResultSet;
     int resultUpdate = 0;
     //variables de los platillos
-    String clave, precio,nombre, descripcion, usuario;
+    String clave, precio, nombre, descripcion, usuario;
     platillos platilloencontrado;
     //Para el usuario
-    String nombreUsuario, email, password, direccion, telefono, tipo;      
+    String nombreUsuario, email, password, direccion, telefono, tipo;
 
     public ArrayList<platillos> Todos() {
         ArrayList<platillos> platillo = new ArrayList<platillos>();
@@ -35,7 +35,7 @@ public class GestorBD {
                     nombre = ResultSet.getString("nombre");
                     descripcion = ResultSet.getString("descripcion");
                     precio = ResultSet.getString("precio");
-                    platilloencontrado = new platillos(clave, usuario, nombre,descripcion, precio);
+                    platilloencontrado = new platillos(clave, usuario, nombre, descripcion, precio);
                     platillo.add(platilloencontrado);
                 } while (ResultSet.next());
                 ConectaBD.cerrar();
@@ -47,7 +47,7 @@ public class GestorBD {
             return null;
         }
     }
-    
+
     public platillos buscarPlatillo(String clavej, String nombrej) {
         try {
             conn = ConectaBD.abrir();
@@ -61,11 +61,11 @@ public class GestorBD {
             } else {
                 System.out.println("Se encontró el registro");
                 clave = ResultSet.getString("idPlatillo");
-                    usuario = ResultSet.getString("idUsuario");
-                    nombre = ResultSet.getString("nombre");
-                    descripcion = ResultSet.getString("descripcion");
-                    precio = ResultSet.getString("precio");
-                    platilloencontrado = new platillos(clave, usuario, nombre,descripcion, precio);
+                usuario = ResultSet.getString("idUsuario");
+                nombre = ResultSet.getString("nombre");
+                descripcion = ResultSet.getString("descripcion");
+                precio = ResultSet.getString("precio");
+                platilloencontrado = new platillos(clave, usuario, nombre, descripcion, precio);
 
                 ConectaBD.cerrar();
                 return platilloencontrado;
@@ -83,7 +83,7 @@ public class GestorBD {
             conn = ConectaBD.abrir();
             stm = conn.createStatement();
 
-            resultUpdate = stm.executeUpdate("INSERT INTO platillos VALUES ('" + clave + "','" + usuario + "','" + nombre+ "','" + descripcion+ "','" + precio + "');");
+            resultUpdate = stm.executeUpdate("INSERT INTO platillos VALUES ('" + clave + "','" + usuario + "','" + nombre + "','" + descripcion + "','" + precio + "');");
 
             if (resultUpdate != 0) {
                 System.out.print("se insertaron los datos");
@@ -126,7 +126,7 @@ public class GestorBD {
     }
 
     public boolean eliminarplatillo(String clave, String nombre) {
-         int resultUpdate = 0;
+        int resultUpdate = 0;
         try {
             conn = ConectaBD.abrir();
             stm = conn.createStatement();
@@ -147,10 +147,40 @@ public class GestorBD {
             return false;
         }
     }
-    
+
     //-------------------------------------------modificaciones del Usuario---------------------------------------
-    
-    public boolean registrarUsuario(String nombreUsuario,String email,String password,String direccion,String telefono){
+    public ArrayList<Usuario> Todosusuarios() {
+        ArrayList<Usuario> usuario = new ArrayList<Usuario>();
+        try {
+            conn = ConectaBD.abrir();
+            stm = conn.createStatement();
+            ResultSet = stm.executeQuery("SELECT * FROM usuarios");
+            if (!ResultSet.next()) {
+                System.out.println(" No se encontraron registros");
+                ConectaBD.cerrar();
+                return null;
+            } else {
+                do {
+                    nombreUsuario = ResultSet.getString("nombreUsuario");
+                    email = ResultSet.getString("email");
+                    password = ResultSet.getString("password");
+                    direccion = ResultSet.getString("direccion");
+                    telefono = ResultSet.getString("telefono");
+                    tipo = ResultSet.getString("tipo");
+                    Usuario usuarioHallado = new Usuario(nombreUsuario, email, password, direccion, telefono, tipo);
+                    usuario.add(usuarioHallado);
+                } while (ResultSet.next());
+                ConectaBD.cerrar();
+                return usuario;
+            }
+        } catch (Exception e) {
+            System.out.println("Error en la base de datos.");
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public boolean registrarUsuario(String nombreUsuario, String email, String password, String direccion, String telefono) {
         int resultUpdate = 0;
         try {
             conn = ConectaBD.abrir();
@@ -171,12 +201,12 @@ public class GestorBD {
             return false;
         }
     }
-    
+
     public Usuario consultar(String nombreUser, String passw) {
         try {
             conn = ConectaBD.abrir();
             stm = conn.createStatement();
-            
+
             ResultSet = stm.executeQuery("SELECT * FROM usuarios WHERE nombreUsuario = '" + nombreUser + "' and password = '" + passw + "';");
 
             if (!ResultSet.next()) {

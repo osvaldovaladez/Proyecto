@@ -1,5 +1,5 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
 
+<%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
     <head>
@@ -15,17 +15,16 @@
         <!-- Los iconos tipo Solid de Fontawesome-->
         <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.8/css/solid.css">
         <script src="https://use.fontawesome.com/releases/v5.0.7/js/all.js"></script>
-        
+
         <!-- Nuestro css-->
         <link rel="stylesheet" type="text/css" href="css/general.css"> 
     </head>
-    <!--hola--->
     <body>
         <nav class="navbar navbar-dark navbar-expand-lg fixed-top navbar-light">
             <div class="container">
 
                 <!-- Navbar: Brand -->
-                <a class="navbar-brand d-lg-none" href="#">Eliminar Platillo</a>
+                <a class="navbar-brand d-lg-none" href="#">Touché</a>
 
                 <!-- Navbar: Toggler -->
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,25 +37,22 @@
                     <!-- Navbar navigation: Left -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item ">
-                            <a class="nav-link active" href="administrarUsuarios.jsp">Usuarios</a>
+                            <a class="nav-link active" href="Acerca.jsp">Acerca de nosotros</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">
-                                Reservaciones
+                            <a class="nav-link" href="menu.jsp">
+                                Menu
                             </a>
                         </li>
                     </ul>
 
                     <!-- Navbar: Brand -->
                     <a class="navbar-brand d-none d-lg-flex" href="#">
-                        Eliminar Platillo
+                        Touché
                     </a>
 
                     <!-- Navbar navigation: Right -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="gestionPlatillos.jsp">Platillos</a>
-                        </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="index.jsp">Salir</a>
                         </li>
@@ -66,35 +62,18 @@
 
             </div> <!-- / .container -->
         </nav>
-        <br>
-        <br>
-        <br>
-        <br>
-        <div class="container">
-            <div class="row">
-                <div class="col-sm-4"></div>
-                <div class="col-sm-6">
-                        <form action="eliminarplatillo" method="post">
-                            <div class="form-group">
-                                <label class="table-dark">Clave: </label>
-                                <input type="text" name="clave"/>
-                            </div>
-                            <div class="form-group">
-                                <br>
-                                <label class="table-dark">Nombre: </label>
-                                <input type="text" name="nombre"/>
-                            </div>
-                            <br>
-                            <input type="reset" class="btn btn-light" value="Borrar">
-                            <input type="submit" class="btn btn-light" value="Eliminar Platillo">
-                        </form>
-                        <br>    
-                        <form action="listaJuego.jsp" method="post">
-                            <input type="submit" class="btn btn-light" value="Regresar">
-                        </form>
-                </div>
-                <div class="col-sm-2"></div>
-            </div>
-        </div>
+        <div class="centrado">
+            <h2>Touche</h2>
+            <p>Lorem ipsum dolor sit amet, 
+                consectetur adipisicing elit. 
+                Non illo, alias animi iusto neque, 
+                sint corrupti? Laudantium, 
+                dignissimos id excepturi facilis, 
+                facere saepe quasi placeat praesentium 
+                ipsa sapiente illo molestiae? 
+            </p>
+            <br>
+            <a class="boton table-dark" href="menu.jsp"> VER MENU </a>
+        </div>		
     </body>
 </html>

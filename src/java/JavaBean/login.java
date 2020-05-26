@@ -52,7 +52,7 @@ public class login extends HttpServlet {
                     request.getRequestDispatcher("/principalAdmin.jsp")
                             .forward(request, response);
                 }else{
-                    request.getRequestDispatcher("/Acerca.jsp")
+                    request.getRequestDispatcher("/usuario.jsp")
                             .forward(request, response);
                 }
             } else {

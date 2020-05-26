@@ -90,7 +90,7 @@
                                     <label class="table-dark">Contraseña: </label>
                                 </td>
                                 <td>
-                                    <input type="text" name="pass"/>
+                                    <input type="password" name="pass"/>
                                 </td>
                             </tr>
                             <tr>

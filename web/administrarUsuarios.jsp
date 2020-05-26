@@ -1,4 +1,6 @@
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
+<%@page import = "Modelo.*"%>
+<%@page import = "Modelo.Usuario, java.util.ArrayList" %>
 <!DOCTYPE html>
 <html>
     <head>
@@ -23,7 +25,7 @@
             <div class="container">
 
                 <!-- Navbar: Brand -->
-                <a class="navbar-brand d-lg-none" href="index.jsp">Touché</a>
+                <a class="navbar-brand d-lg-none" href="principalAdmin.jsp">Administrador</a>
 
                 <!-- Navbar: Toggler -->
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -36,27 +38,27 @@
                     <!-- Navbar navigation: Left -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item ">
-                            <a class="nav-link active" href="Acerca.jsp">Acerca de nosotros</a>
+                            <a class="nav-link active" href="administrarUsuarios.jsp">Usuarios</a>
                         </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="#">
-                                Menu
+                                Reservaciones
                             </a>
                         </li>
                     </ul>
 
                     <!-- Navbar: Brand -->
-                    <a class="navbar-brand d-none d-lg-flex" href="index.jsp">
-                        Touché
+                    <a class="navbar-brand d-none d-lg-flex" href="principalAdmin.jsp">
+                        Administrador
                     </a>
 
                     <!-- Navbar navigation: Right -->
                     <ul class="navbar-nav ml-auto">
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">Login</a>
+                            <a class="nav-link" href="gestionPlatillos.jsp">Platillos</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="administrarUsuarios.jsp">Contact</a>
+                            <a class="nav-link" href="index.jsp">Salir</a>
                         </li>
                     </ul>
 
@@ -64,49 +66,57 @@
 
             </div> <!-- / .container -->
         </nav>
-       <div class="admin-content">
+        <br>
+        <br>
+        <br>
+        <div class="admin-content">
 
-  <div class="title-content">
-  </div>
+            <div class="title-content">
+            </div>
 
-      <div class="row-content">
-          <h4 style="color: greenyellow">Lista de usuarios</h4>
-    			<hr/>
-     </div>
+            <div class="row-content">
+                <h4 style="color: greenyellow">Lista de usuarios</h4>
+                <hr/>
+            </div>
+            <%
+                ArrayList<Usuario> platillo = null;
+                GestorBD gestorBD = new GestorBD();
 
-      <table id="users_table" class="table table-hover ">
-        <thead>
-            <tr style="color: greenyellow">
-            <th>Id</th>
-            <th>Nombre</th>
-            <th>Email</th>
-            <th>Direccion</th>
-             <th>Telefono</th>
-            <th>Acciones</th>
-          </tr>
-        </thead>
-        <tbody>
-          <?php foreach($data['users'] as $user): ?>
-          <tr style="color: greenyellow">
-              <td><?php echo $user->id; ?></td>
-              <td><?php echo $user->nombre; ?></td>
-              <td><?php echo $user->first_name; ?></td>
-              <td><?php echo $user->last_name; ?></td>
-              <td><?php echo $user->last_name; ?></td>
-                     <td>
-                  <input id="clickMe" id="Editar" class="btn btn-primary btn-sm" type="button" value="Editar"/>
-                <form action="<?php echo ROUTE_URL.'/User/delete/'; ?>" method="POST">
-                  <input type="hidden" name="user_id" value="<?php echo $user->id; ?>">
-                  <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
-                </form>
-                <?php endif; ?>
-              </td>
+                platillo = gestorBD.Todosusuarios();
+            %> 
+            <table id="users_table" class="table table-hover ">
+                <thead>
+                    <tr style="color: greenyellow">
+                        <th>Id</th>
+                        <th>Nombre</th>
+                        <th>Email</th>
+                        <th>Direccion</th>
+                        <th>Telefono</th>
+                        <th>Acciones</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <%
+                        for (Usuario plato : platillo) {
+                    %>
+                    <tr style="color: greenyellow">
+                        <td><%=plato.getIdUsuario()%></td>
+                        <td><%=plato.getNombreUsuario()%></td>
+                        <td><%=plato.getEmail()%></td>
+                        <td><%=plato.getDireccion()%></td>
+                        <td><%=plato.getTelefono()%></td>
+                        <td>
+                            <input id="clickMe" id="Editar" class="btn btn-primary btn-sm" type="button" value="Editar"/>
+                            <form action="#" method="POST">
+                                <input type="hidden" name="user_id" value="">
+                                <button type="submit" class="btn btn-danger btn-sm">Eliminar</button>
+                            </form>
+                        </td>
+                        <% }%>
+                    </tr>
+                </tbody>
+            </table>
 
-            </tr>
-          <?php endforeach ?>
-        </tbody>
-      </table>
-
-  </div>
+        </div>
     </body>
 </html>

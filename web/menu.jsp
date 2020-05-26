@@ -25,7 +25,7 @@
             <div class="container">
 
                 <!-- Navbar: Brand -->
-                <a class="navbar-brand d-lg-none" href="index.jsp">Platillos</a>
+                <a class="navbar-brand d-lg-none" href="#">Touché</a>
 
                 <!-- Navbar: Toggler -->
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -38,25 +38,22 @@
                     <!-- Navbar navigation: Left -->
                     <ul class="navbar-nav mr-auto">
                         <li class="nav-item ">
-                            <a class="nav-link active" href="administracionUsuario.jsp">Usuarios</a>
+                            <a class="nav-link active" href="Acerca.jsp">Acerca de nosotros</a>
                         </li>
                         <li class="nav-item active">
-                            <a class="nav-link" href="#">
-                                Reservaciones
+                            <a class="nav-link" href="menu.jsp">
+                                Menu
                             </a>
                         </li>
                     </ul>
 
                     <!-- Navbar: Brand -->
-                    <a class="navbar-brand d-none d-lg-flex" href="gestionPlatillos.jsp">
-                        Platillos
+                    <a class="navbar-brand d-none d-lg-flex" href="#">
+                        Touché
                     </a>
 
                     <!-- Navbar navigation: Right -->
                     <ul class="navbar-nav ml-auto">
-                        <li class="nav-item active">
-                            <a class="nav-link" href="gestionPlatillos">Platillos</a>
-                        </li>
                         <li class="nav-item active">
                             <a class="nav-link" href="index.jsp">Salir</a>
                         </li>
@@ -103,32 +100,7 @@
                 </table>
 
                 <br>
-                <table border="0" cellpadding="5">
-                    <tr>
-                        <td>
-                            <form action="Buscarplatillo.jsp" method="post">
-                                <input type="submit" class="btn btn-light" value="Buscar Platillo">
-                            </form>
-                        </td>
-                        <td>
-                            <form action="agregarPlatillo.jsp" method="post">
-                                <input type="submit" class="btn btn-light" value="Agregar Platillo">
-                            </form>
-                        </td>
-                        <td>
-                            <form action="buscaplatillomodifica.jsp" method="post">
-                                <input type="submit" class="btn btn-light" value="Modicar Platillo">
-                            </form>
-                        </td>
                 
-                        <td>
-                            <form action="eliminacionPlatillo.jsp" method="post">
-                                <input type="submit" class="btn btn-light" value="Eliminar Platillo">
-                            </form>
-                        </td>
-                        
-                    </tr>
-                </table>
                 </div>
                 <div class="col-sm-3"></div>
             </div>
