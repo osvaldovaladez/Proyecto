@@ -1,9 +1,3 @@
-<%-- 
-    Document   : Acerca
-    Created on : 19/05/2020, 09:50:59 PM
-    Author     : osvaldo
---%>
-
 <%@page contentType="text/html" pageEncoding="UTF-8"%>
 <!DOCTYPE html>
 <html>
@@ -98,13 +92,6 @@
                         <p>
                             Lorem ipsum dolor sit amet, consectetur adipisicing elit. Molestias veritatis nisi, consequatur, laborum libero a neque ducimus. Porro rem illum quo nostrum quisquam asperiores, blanditiis, consectetur. Possimus facilis velit, voluptatibus!
                         </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Debitis deleniti non, voluptate architecto, harum suscipit dignissimos eaque voluptatibus nobis natus error iure exercitationem. Officia facilis, maiores atque delectus commodi rerum.
-                        </p>
-                        <p>
-                            Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aspernatur qui, itaque, accusantium accusamus eum voluptate ducimus eligendi laboriosam alias mollitia omnis harum et ut quaerat, minus repellendus sint. Inventore, iure.
-                        </p>
-
                     </div>
                 </div> <!-- / .row -->
             </div> <!-- / .container -->
