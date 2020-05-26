@@ -76,7 +76,14 @@
                 ipsa sapiente illo molestiae? 
             </p>
             <br>
-            <a class="boton table-dark" href="Registro_Usuario.jsp"> REGISTRARSE </a>
-        </div>		
+            <a class="boton table-dark" href="Registro_Usuario.jsp"> REGISTRARSE </a>           
+        </div>	
+<div class="resp-iframe">        
+            <iframe src="https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d14888.335088438853!2d
+                    -101.6274982!3d21.1092261!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x0%3A0xff3c8cc2b5af
+                    98fc!2sInstituto%20Tecnol%C3%B3gico%20de%20Le%C3%B3n!5e0!3m2!1ses!2smx!4v1590516
+                    759080!5m2!1ses!2smx" width="600" height="450" frameborder="0" style="border:0;" 
+                    allowfullscreen="" aria-hidden="false" tabindex="0"></iframe>	 
+</div>         
     </body>
 </html>
