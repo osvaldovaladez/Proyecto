@@ -1,6 +1,4 @@
-<%@page contentType="text/html" pageEncoding="UTF-8"%>
-<%@page import = "Modelo.*"%>
-<%@page import = "Modelo.platillos, java.util.ArrayList" %>
+
 <!DOCTYPE html>
 <html>
     <head>
@@ -25,7 +23,7 @@
             <div class="container">
 
                 <!-- Navbar: Brand -->
-                <a class="navbar-brand d-lg-none" href="index.jsp">Platillos</a>
+                <a class="navbar-brand d-lg-none" href="index.jsp">Touché</a>
 
                 <!-- Navbar: Toggler -->
                 <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
@@ -49,7 +47,7 @@
 
                     <!-- Navbar: Brand -->
                     <a class="navbar-brand d-none d-lg-flex" href="index.jsp">
-                        Platillos
+                        Administrador
                     </a>
 
                     <!-- Navbar navigation: Right -->
@@ -69,12 +67,6 @@
         <br>
         <br>
         <br>
-        <%
-            ArrayList<platillos> platillo = null;
-            GestorBD gestorBD = new GestorBD();
-
-            platillo = gestorBD.Todos();
-        %> 
         <div class="container">
             <div class="row">
                 <div class="col-sm-3"></div>
@@ -83,23 +75,39 @@
                 <table class="table">
                     <tr class="table-dark">
                         <th>Clave</th>
-                        <th>Clave Usuario</th>
+                        <th> Imagen</th>
                         <th>Nombre</th>
                         <th>Descripcion</th>
                         <th>Precio</th>
                     </tr>
-                    <%
-                            for (platillos plato : platillo) {
-                    %>
+                    
                     <tr class="table-dark" valign="rigth">
-                            <td><%=plato.getId()%></td>
-                            <td><%=plato.getUsuario()%></td>
-                            <td><%=plato.getNombre()%></td>
-                            <td><%=plato.getDescripcion()%></td>
-                            <td>$<%=plato.getPrecio()%></td>
-                        </tr>
-
-                        <% }%>
+                        <td>1</td>
+                        <td><img src="img/platillo1.jpg"></td>
+                        <td>Lorem ipsum dolor sit amet</td>
+                        <td>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit.  
+                        </td>
+                        <td>$15</td>
+                    </tr>
+                    <tr class="table-dark" valign="rigth">
+                        <td>2</td>
+                        <td><img src="img/platillo2.jpg"></td>
+                        <td>Fusce sed dolor eget tortor</td>
+                        <td>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit.  
+                        </td>
+                        <td>$16</td>
+                    </tr>
+                    <tr class="table-dark" valign="rigth">
+                        <td>3</td>
+                        <td><img src="img/platillo3.jpg"></td>
+                        <td>Fusce id ante ut arcu</td>
+                        <td>Lorem ipsum dolor sit amet, 
+                            consectetur adipisicing elit.  
+                        </td>
+                        <td>$23</td>
+                    </tr>
                 </table>
 
                 <br>
