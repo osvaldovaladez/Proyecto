@@ -21,7 +21,7 @@
     <div class="row">
         <div class="col-md-12">
             <div class="well well-sm">
-                <form class="form-horizontal" method="POST">
+                <form class="form-horizontal" action="AgregarUsuario" method="POST">
                     <fieldset>
                         <legend class="text-center header" style="color: aqua">Registrar Nuevo Usuario</legend>
 
