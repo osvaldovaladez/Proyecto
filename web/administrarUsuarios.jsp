@@ -20,7 +20,49 @@
     </head>
     <body>
         <nav class="navbar navbar-dark navbar-expand-lg fixed-top navbar-light">
-            
+            <div class="container">
+
+                <!-- Navbar: Brand -->
+                <a class="navbar-brand d-lg-none" href="index.jsp">Touché</a>
+
+                <!-- Navbar: Toggler -->
+                <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+
+                <!-- Navbar: Collapse -->
+                <div class="navbar-collapse collapse" id="navbarSupportedContent" style="">
+
+                    <!-- Navbar navigation: Left -->
+                    <ul class="navbar-nav mr-auto">
+                        <li class="nav-item ">
+                            <a class="nav-link active" href="Acerca.jsp">Acerca de nosotros</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">
+                                Menu
+                            </a>
+                        </li>
+                    </ul>
+
+                    <!-- Navbar: Brand -->
+                    <a class="navbar-brand d-none d-lg-flex" href="index.jsp">
+                        Touché
+                    </a>
+
+                    <!-- Navbar navigation: Right -->
+                    <ul class="navbar-nav ml-auto">
+                        <li class="nav-item active">
+                            <a class="nav-link" href="#">Login</a>
+                        </li>
+                        <li class="nav-item active">
+                            <a class="nav-link" href="administrarUsuarios.jsp">Contact</a>
+                        </li>
+                    </ul>
+
+                </div> <!-- / .navbar-collapse -->
+
+            </div> <!-- / .container -->
         </nav>
     </body>
 </html>
