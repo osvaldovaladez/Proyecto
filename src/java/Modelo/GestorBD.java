@@ -51,5 +51,26 @@ public class GestorBD {
             return null;
         }
     }
+    
+    public boolean registrarUsuario(String nombreUsuario,String email,String password,String direccion,String telefono){
+        int resultUpdate = 0;
+        try {
+            conn = ConectaBD.abrir();
+            stm = conn.createStatement();
 
+            resultUpdate = stm.executeUpdate("INSERT INTO usuarios (nombreUsuario, email, password, direccion, telefono, tipo) VALUES ('" + nombreUsuario + "','" + email + "','" + password + "','" + direccion + "','" + telefono + "','user');");
+
+            if (resultUpdate != 0) {
+                System.out.print("se insertaron los datos");
+                ConectaBD.cerrar();
+                return true;
+            } else {
+                ConectaBD.cerrar();
+                return false;
+            }
+        } catch (SQLException e) {
+            System.out.println("Error en la base de datos.");
+            return false;
+        }
+    }
 }
